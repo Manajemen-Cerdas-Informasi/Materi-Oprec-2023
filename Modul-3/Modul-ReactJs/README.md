@@ -1,16 +1,19 @@
 # ReactJS
 
 ## Daftar Isi
-[1. Pengenalan ReactJS](#1-pengenalan-reactjs)
-    [1.1. Apa itu ReactJS?](#11-apa-itu-reactjs)
-    [1.2. Kenapa ReactJS?](#12-kenapa-reactjs)
-    [1.3. Virtual DOM](#13-virtual-dom)
-[2. Instalasi ReactJS](#2-instalasi-reactjs)
-    [2.1. Instalasi NodeJS](#21-instalasi-nodejs)
-    [2.2. Instalasi Create React App](#22-instalasi-create-react-app)
-    [2.3. Menjalankan Aplikasi ReactJS](#23-menjalankan-aplikasi-reactjs)
-    [2.4. Struktur Folder ReactJS](#24-struktur-folder-reactjs)
-    [2.5. Struktur File ReactJS](#25-struktur-file-reactjs)
+- [1. Pengenalan ReactJS](#1-pengenalan-reactjs)
+  - [1.1. Apa itu ReactJS?](#11-apa-itu-reactjs)
+  - [1.2. Kenapa ReactJS?](#12-kenapa-reactjs)
+  - [1.3. Virtual DOM](#13-virtual-dom)
+- [2. Instalasi ReactJS](#2-instalasi-reactjs)
+  - [2.1. Instalasi NodeJS](#21-instalasi-nodejs)
+  - [2.2. Instalasi Create React App](#22-instalasi-create-react-app)
+  - [2.3. Menjalankan Aplikasi ReactJS](#23-menjalankan-aplikasi-reactjs)
+  - [2.4. Struktur Folder ReactJS](#24-struktur-folder-reactjs)
+  - [2.5. Struktur File ReactJS](#25-struktur-file-reactjs)
+- [3. Praktik Membuat Aplikasi ReactJS](#3-praktik-membuat-aplikasi-reactjs)
+  - [3.1 Repository](#31-repository)
+  - [3.2. Daftar Isi Repository](#32-daftar-isi-repository)
 
 
 

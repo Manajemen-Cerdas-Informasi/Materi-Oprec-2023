@@ -323,3 +323,73 @@ for (let char of message) {
 // !
 
 ```
+
+#### 2.5. Function
+Function atau fungsi adalah salah satu fitur penting dalam pemrograman yang memungkinkan Anda untuk menulis kode yang dapat digunakan kembali atau dipanggil kembali pada bagian lain dari program. Function pada dasarnya adalah blok kode yang dapat dieksekusi secara terpisah dari program utama, dan dapat menerima masukan (parameter) dan menghasilkan keluaran (return value) (tidak harus). Dalam javascript terdapat tiga cara untuk mendefinisikan function.
+
+##### 1. Function Declaration
+Cara paling umum untuk membuat function di JavaScript adalah dengan menggunakan Function Declaration. Function Declaration biasanya digunakan untuk membuat function yang dapat dipanggil di seluruh program.
+
+```js
+function tambah(a, b) {
+  return a + b;
+}
+```
+
+##### 2. Function Expression
+Function Expression adalah cara lain untuk membuat function di JavaScript. Function Expression biasanya digunakan untuk membuat function yang hanya digunakan di dalam satu blok kode tertentu.
+
+```js
+var kurang = function(a, b) {
+  return a - b;
+}
+```
+
+##### 3. Arrow Function
+Arrow Function adalah cara baru untuk membuat function di JavaScript. Arrow Function biasanya digunakan untuk membuat function yang sederhana dan mudah dibaca.
+```js
+var kali = (a, b) => { 
+  return a * b
+};
+```
+```js
+hello = val => "Hello " + val; 
+```
+
+#### 2.6. Object and Array
+##### 2.6.1. Object
+`Object` adalah tipe data yang penting dan sering digunakan. Object adalah kumpulan dari properti (properties) dan metode (methods) yang merepresentasikan suatu objek dalam dunia nyata. Properti adalah variabel yang berisi nilai, sedangkan metode adalah function yang memungkinkan objek untuk melakukan tindakan tertentu. Berikut adalah contoh object dalam JavaScript:
+
+```js
+var mahasiswa = {
+  nama: "Labib",
+  asal: "Indonesia",
+  age: 25,
+  say: function() {
+    return "Halo saya " + this.nama + " dari " + this.asal;
+  }
+};
+console.log(mahasiswa.say())
+// Output : Halo saya Labib dari Indonesia
+```
+
+Untuk mengakses nilai dalam objek dapat menggunakan beberapa cara:
+```js
+// mengakses properti 
+objectName.propertyName
+objectName["propertyName"]
+
+// mengakses methods
+objectName.methodName()
+```
+
+Nilai dalam properti objek dapat kita ubah dengan cara re-assign value ke properti tersebut
+```js
+const obj = {first:"first", second:"second"}
+obj.first = "satu"
+obj["second"] = "dua"
+
+console.log(obj)
+// Output : { first: 'satu', second: 'dua' }
+```
+

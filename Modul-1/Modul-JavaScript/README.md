@@ -393,3 +393,15 @@ console.log(obj)
 // Output : { first: 'satu', second: 'dua' }
 ```
 
+##### 2.6.2. Array
+
+`Array` adalah struktur data dalam JavaScript yang digunakan untuk menyimpan kumpulan nilai (value) dalam satu variabel. Array pada dasarnya adalah kumpulan dari nilai yang dikelompokkan dalam satu tempat. Setiap nilai pada array memiliki indeks (index) yang dimulai dari 0 dan diurutkan secara teratur. Berikut contoh penggunaan array.
+
+```js
+const arr = [1,2,3,4,5]
+arr.push(6)  // menambahkan nilai 1 ke akhir array [ Output : [ 1, 2, 3, 4, 5, 6 ] ]
+arr.pop() // menghapus nilai terakhir dari array [ Output : [ 1, 2, 3, 4, 5 ] ] 
+arr.shift() // menghapus nilai pertama dari array [ Output : [ 2, 3, 4, 5 ] ] 
+arr.unshift(10) // menambahkan nilai baru di awal array [ Output : [ 10, 2, 3, 4, 5 ] ] 
+arr.splice(1,0,100,120,130) // menambahkan nilai dimulai dari index 1 sebanyak nilai ( 100, 120, 130) menghapus nilai sebanyak 0 [ Output : [10, 100, 120, 130, 2, 3, 4, 5] ] 
+```

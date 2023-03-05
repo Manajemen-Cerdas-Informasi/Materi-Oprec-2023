@@ -130,7 +130,7 @@ Dalam Javascript,  terdapat beberapa macam tipe data
 |  II 	| logical or |
 | ! 	| logical not| 
 
-##### 2.2.2 Operator perbandingan
+##### 2.2.3 Operator perbandingan
 | Operator | Deskripsi |
 | ------------- | ------------- |
 | == 		| equal to |
@@ -143,3 +143,63 @@ Dalam Javascript,  terdapat beberapa macam tipe data
 | <= 		| less than or equal to |
 | ? 		| ternary operator |
 
+#### 2.3. Conditional Statements
+##### 2.3.1 If
+```javascript
+let a = 10
+
+if(a == 10){
+  console.log("a sama dengan 10")
+}
+// Output : a sama dengan 10
+```
+
+##### 2.3.2 if else
+```javascript
+let a = 15
+
+if(a == 10){
+  console.log("a sama dengan 10")
+} else {
+  console.log("a tidak sama dengan 10")
+}
+// Output : a tidak sama dengan 10
+```
+
+##### 2.3.3 else if
+```javascript
+let a = 15
+
+if(a == 10){
+  console.log("a sama dengan 10")
+} else if (a > 10) {
+  console.log("a lebih besar dari 10")
+} else if (a < 10) {
+  console.log("a kurang dari 10")
+} else {
+  console.log("a undefined")
+}
+// Output : a lebih besar dari 10
+```
+
+##### 2.3.4 switch
+```javascript
+let a = 10
+
+switch(true){
+  case a == 10:
+    console.log("a sama dengan 10")
+    break
+  case a > 10:
+    console.log("a lebih besar dari 10")
+    break
+  case a < 10:
+    console.log("a kurang dari 10")
+    break
+  default:
+    console.log("a undefined")
+    break
+    
+}
+```
+#### 2.2. Looping Statements

@@ -54,3 +54,92 @@ console.log("Hello World")
 
 5. **Banyak perusahaan yang menggunakan Javascript**
 ### 2. Pengenalan Javascript
+#### 2.1. Variabel dan Tipe Data
+Variabel dalam javascript sama halnya dengan variabel pada bahasa pemrograman pada umumnya, yaitu merupakan sebuah tempat untuk menyimpan nilai atau data yang akan digunakan dalam program yang akan dibuat. Namun, Javascript mempunyai cara sendiri untuk mendefinisikan variabel tersebut. Terdapat tiga cara pendefinisian variabel dalam javascript, yaitu `var`, `let`, `const`. Pada awalnya, pendefinisian variabel hanya menggunakan `var`, tetapi seiring berkembang muncul konsep `let` dan `const`. Ketiganya mempunyai perbedaan ketika digunakan tergantung pada kebutuhan yang akan dikerjakan.
+1. `var`: Variabel yang dideklarasikan dengan `var` memiliki lingkup (scope) yang cukup luas, yaitu lingkup fungsi atau lingkup global. Artinya, variabel yang dideklarasikan dengan `var` dapat diakses dari mana saja di dalam fungsi atau di seluruh kode. Variabel yang dideklarasikan dengan `var` dapat diinisialisasi ulang dan nilainya dapat diubah di mana saja di dalam fungsi atau kode.
+
+2. `let`: Variabel yang dideklarasikan dengan `let` memiliki lingkup yang lebih terbatas dibandingkan dengan var, yaitu hanya lingkup blok kode di mana variabel dideklarasikan. Variabel yang dideklarasikan dengan `let` tidak dapat diinisialisasi ulang, tetapi nilainya dapat diubah di dalam blok kode tempat variabel dideklarasikan.
+
+3. `const`: Variabel yang dideklarasikan dengan `const` juga memiliki lingkup yang terbatas seperti `let`, yaitu hanya lingkup blok kode di mana variabel dideklarasikan. Namun, perbedaannya adalah nilai variabel yang dideklarasikan dengan `const` tidak dapat diubah setelah dideklarasikan. Variabel yang dideklarasikan dengan `const` harus diinisialisasi saat dideklarasikan, dan nilai variabel tidak dapat diubah setelahnya.
+
+Berikut contoh penggunaan ketiganya:
+```js
+var a = 10;
+const b = 20;
+let c = 30;
+
+console.log(a); // Output : 10
+console.log(b); // Output : 20
+console.log(c); // Output : 30
+
+a = a + 5;
+// b = b + 5;
+c = c + 5;
+
+console.log(a); // Output : 15
+console.log(b); // Output : TypeError: Assignment to constant variable.
+console.log(c); // Output : 35
+
+{
+  a = 50;
+  c = c + 5;
+  const d = 50;
+  let e = 50;
+
+  console.log(a); // Output : 50
+  console.log(d); // Output : 50
+  console.log(e); // Output : 50
+}
+
+console.log(a); // Output : 50
+console.log(b); // Output : 20
+console.log(c); // Output : 40
+console.log(d); // Output : ReferenceError: d is not defined
+console.log(e); // Output : ReferenceError: e is not defined
+
+```
+
+Dalam Javascript,  terdapat beberapa macam tipe data
+| No | Tipe Data | Contoh | 
+| ------------- | ------------- | ------------- |
+| 1. | String | "Halo, Nama Saya ... " |
+| 2. | Number | 8 |
+| 3. | Array | [1,2,3,5,8,13,21] |
+| 4. | Boolean | true or false |
+| 5. | Undefined | undefined |
+| 6. | Null | Null |
+| 7. | Object | {firstName:"John", lastName:"Doe"} |
+
+#### 2.2. Operator Aritmatika, Logika, perbandingan
+##### 2.2.1 Operator Aritmatika
+| Operator  | Deskripsi |
+| ------------- | ------------- |
+| +  | Addition  |
+| -  | Subtraction  |
+| *  | Multiplication  |
+| **  | Exponentiation (ES2016)  |
+| / | Division  |
+| % | Modulus (Division Remainder)  |
+| ++ | Increment  |
+| -- | Decrement  |
+
+##### 2.2.2 Operator Logika
+| Operator | Deskripsi |
+| ------------- | ------------- |
+| && 	| logical and |
+|  II 	| logical or |
+| ! 	| logical not| 
+
+##### 2.2.2 Operator perbandingan
+| Operator | Deskripsi |
+| ------------- | ------------- |
+| == 		| equal to |
+| === 		| equal value and equal type |
+| != 		| not equal |
+| !== 		| not equal value or not equal type |
+| > 		| greater than |
+| < 		| less than |
+| >= 		| greater than or equal to |
+| <= 		| less than or equal to |
+| ? 		| ternary operator |
+

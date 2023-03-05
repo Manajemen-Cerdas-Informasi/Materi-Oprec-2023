@@ -202,4 +202,124 @@ switch(true){
     
 }
 ```
-#### 2.2. Looping Statements
+#### 2.4. Looping Statements
+##### 2.4.1 While
+```javascript
+let i = 0;
+while (i < 5) {
+  console.log(i)
+  i++;
+}
+// output : 
+// 0
+// 1
+// 2
+// 3
+// 4
+
+```
+#### 2.4.2 For
+```
+for(let i = 0; i<5; i++){
+  console.log(i)
+}
+// output : 
+// 0
+// 1
+// 2
+// 3
+// 4
+```
+
+#### 2.4.2 For in
+`for in` digunakan untuk melakukan iterasi pada sebuah objek.
+
+```javascript
+for (var propertyName in object) {
+  // blok kode yang akan dijalankan untuk setiap properti objek
+}
+```
+
+`propertyName`: variabel yang digunakan untuk menampung nama properti objek pada setiap iterasi.
+
+`object`: objek yang akan diiterasi.
+
+Berikut Contoh penggunaannya : 
+```javascript
+const mahasiswa = { nama: "labib", asal: "indonesia", age: 20 };
+
+let val = [];
+for (let mhs in mahasiswa) {
+  val.push(mahasiswa[mhs]);
+}
+
+console.log(`Halo nama saya ${val[0]} dari ${val[1]} \numur saya ${val[2]}`);
+\\ Output : 
+\\ Halo nama saya labib dari indonesia 
+\\ umur saya 20
+```
+
+```js
+const mahasiswa = [
+  { nama: "labib", asal: "indonesia", age: 20 },
+  { nama: "alfaraby", asal: "indonesia", age: 21 },
+  { nama: "muhammad", asal: "indonesia", age: 22 },
+];
+
+for (let mhs in mahasiswa) {
+  //   val.push(mahasiswa[mhs]);
+  console.log(
+    `Halo nama saya ${mahasiswa[mhs].nama} dari ${mahasiswa[mhs].asal} \numur saya ${mahasiswa[mhs].age}`
+  );
+}
+
+// Output : 
+// Halo nama saya labib dari indonesia
+// umur saya 20
+// Halo nama saya alfaraby dari indonesia
+// umur saya 21
+// Halo nama saya muhammad dari indonesia
+// umur saya 22
+```
+#### 2.4.2 For of
+`for of` digunakan untuk melakukan iterasi pada objek iterables, seperti array, string, set.
+
+```javascript
+for (var propertyName of object) {
+  // blok kode yang akan dijalankan untuk setiap properti objek iterable
+}
+```
+
+```js
+const fruits = ['apple', 'banana', 'orange'];
+
+for (let fruit of fruits) {
+  console.log(fruit);
+}
+// Output : 
+// apple
+// banana
+// orange
+```
+
+```js
+const message = 'Hello World!';
+
+for (let char of message) {
+  console.log(char);
+}
+// Output : 
+// H
+// e
+// l
+// l
+// o
+
+// W
+// o
+// r
+// l
+// d
+// !
+
+```

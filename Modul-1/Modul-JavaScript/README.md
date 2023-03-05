@@ -405,3 +405,5 @@ arr.shift() // menghapus nilai pertama dari array [ Output : [ 2, 3, 4, 5 ] ]
 arr.unshift(10) // menambahkan nilai baru di awal array [ Output : [ 10, 2, 3, 4, 5 ] ] 
 arr.splice(1,0,100,120,130) // menambahkan nilai dimulai dari index 1 sebanyak nilai ( 100, 120, 130) menghapus nilai sebanyak 0 [ Output : [10, 100, 120, 130, 2, 3, 4, 5] ] 
 ```
+Referensi methods pada yang bisa digunakan dalam array : https://www.w3schools.com/jsref/jsref_obj_array.asp
+

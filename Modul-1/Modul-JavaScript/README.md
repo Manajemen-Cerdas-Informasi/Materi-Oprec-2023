@@ -261,9 +261,9 @@ console.log(`Halo nama saya ${val[0]} dari ${val[1]} \numur saya ${val[2]}`);
 
 ```js
 const mahasiswa = [
-  { nama: "labib", asal: "indonesia", age: 20 },
-  { nama: "alfaraby", asal: "indonesia", age: 21 },
-  { nama: "muhammad", asal: "indonesia", age: 22 },
+  { nama: "Sota", asal: "indonesia", age: 20 },
+  { nama: "Tamaki", asal: "indonesia", age: 21 },
+  { nama: "Tomoya", asal: "indonesia", age: 22 },
 ];
 
 for (let mhs in mahasiswa) {
@@ -274,11 +274,11 @@ for (let mhs in mahasiswa) {
 }
 
 // Output : 
-// Halo nama saya labib dari indonesia
+// Halo nama saya Sota dari indonesia
 // umur saya 20
-// Halo nama saya alfaraby dari indonesia
+// Halo nama saya Tamaki dari indonesia
 // umur saya 21
-// Halo nama saya muhammad dari indonesia
+// Halo nama saya Tomoya dari indonesia
 // umur saya 22
 ```
 #### 2.4.2 For of
@@ -429,3 +429,51 @@ const sayHello = require('./helloWorld.js')
 console.log(sayHello("Suzume Iwato")
 
 ```
+
+### Soal Latihan
+
+1. Buatkan program menggunakan Function Expression dengan JavaScript dengan tujuan menampilkan kalimat (“Saya Calon Admin MCI”). 
+2. Buatlah 2 file dengan tujuan sebagai berikut:
+    - File pertama berisikan fungsi aritmatika sederhana seperti penjumlahan, pengurangan, perkalian, pembagian
+    - File kedua tampilkan hasil perhitungan berikut menggunakan modul dari file pertama : `4000 / 2 + 25 - 2`
+
+3. np.argwhere merupakan sebuah fungsi yang tersedia pada library numpy di bahasa pemrograman python. Fungsi tersebut akan mengembalikan sebuah array 2 dimensi yang berisikan index - index value pada array n-d yang tidak bernilai 0, lakukan pencarian secara mandiri untuk mengetahui lebih lanjut mengenai fungsi np.argwhere. Implementasikan fungsi tersebut pada bahasa pemrograman Javascript untuk input array 3 dimensi.
+
+Fungsi berikut mungkin akan digunakan dalam menyelesaikan soal : 
+```js
+function dim(arr) {
+  if (arr instanceof Array) {
+    return [arr.length].concat(dim(arr[0]));
+  } else {
+    return [];
+  }
+}
+// fungsi di atas akan mengembalikan ukuran dari array yang menjadi input value.
+```
+
+```
+input :
+[
+  [
+    [1, 0, 0],
+    [0, 1, 0],
+    [0, 0, 0],
+  ],
+  [
+    [1, 0, 0],
+    [0, 1, 0],
+    [0, 0, 0],
+  ],
+  [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+  ],
+]
+output : 
+[
+  [0, 0, 0],
+  [0, 1, 1],
+  [1, 0, 0],
+  [1, 1, 1],
+]

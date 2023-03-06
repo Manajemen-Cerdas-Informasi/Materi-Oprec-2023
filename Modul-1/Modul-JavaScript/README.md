@@ -407,3 +407,25 @@ arr.splice(1,0,100,120,130) // menambahkan nilai dimulai dari index 1 sebanyak n
 ```
 Referensi methods pada yang bisa digunakan dalam array : https://www.w3schools.com/jsref/jsref_obj_array.asp
 
+#### 2.7. Module 
+Module dalam JavaScript adalah cara untuk mengorganisasi kode menjadi beberapa file yang terpisah dan dapat digunakan kembali di beberapa bagian dalam aplikasi. Dalam modul, variabel, fungsi, atau kelas tertentu dapat dideklarasikan sebagai "eksport" yang dapat diakses dari modul lain, dan modul tersebut dapat mengimpor variabel, fungsi, atau kelas dari modul lain untuk digunakan di dalamnya.
+
+Modul pada JavaScript dapat digunakan pada lingkungan pengembangan seperti Node.js atau browser modern yang mendukung standar JavaScript seperti ECMAScript 6 (ES6) atau yang lebih baru. Untuk menggunakannya, kita perlu mendefinisikan modul dengan menentukan variabel atau fungsi mana yang dapat diakses dari luar modul. Kemudian, modul tersebut dapat diimpor pada file JavaScript yang membutuhkan dengan menggunakan perintah import, tetapi kita dapat juga mendefinisikannya dengan menggunakan variable.
+
+```js
+// Buat file pertama : helloWorld.js
+
+const sayHello = (name) => {
+  return "Hello " + name;
+}
+
+module.exports = {sayHello};
+```
+
+```js
+// Buat file kedua : main.js
+const sayHello = require('./helloWorld.js')
+
+console.log(sayHello("Suzume Iwato")
+
+```

@@ -263,7 +263,7 @@ console.log(`Halo nama saya ${val[0]} dari ${val[1]} \numur saya ${val[2]}`);
 const mahasiswa = [
   { nama: "Sota", asal: "indonesia", age: 20 },
   { nama: "Tamaki", asal: "indonesia", age: 21 },
-  { nama: "Tomoya", asal: "indonesia", age: 22 },
+  { nama: "Serizawa", asal: "indonesia", age: 22 },
 ];
 
 for (let mhs in mahasiswa) {
@@ -278,7 +278,7 @@ for (let mhs in mahasiswa) {
 // umur saya 20
 // Halo nama saya Tamaki dari indonesia
 // umur saya 21
-// Halo nama saya Tomoya dari indonesia
+// Halo nama saya Serizawa dari indonesia
 // umur saya 22
 ```
 #### 2.4.2 For of
@@ -421,6 +421,9 @@ const sayHello = (name) => {
 
 module.exports = {sayHello};
 ```
+#### 2.8. Asynchronous 
+Asynchronous JavaScript (Async JS) adalah teknik pemrograman JavaScript yang memungkinkan eksekusi kode secara non-blokir (non-blocking), sehingga kode dapat terus berjalan tanpa harus menunggu proses yang memakan waktu seperti permintaan jaringan atau operasi input/output (I/O) lainnya selesai terlebih dahulu. Dalam hal ini, Async JS dapat meningkatkan responsivitas dan kinerja aplikasi web. Async JS sering digunakan untuk menangani permintaan jaringan, animasi, interaksi pengguna, dan operasi I/O lainnya yang memakan waktu. 
+
 
 ```js
 // Buat file kedua : main.js

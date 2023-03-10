@@ -421,9 +421,6 @@ const sayHello = (name) => {
 
 module.exports = {sayHello};
 ```
-#### 2.8. Asynchronous 
-Asynchronous JavaScript (Async JS) adalah teknik pemrograman JavaScript yang memungkinkan eksekusi kode secara non-blokir (non-blocking), sehingga kode dapat terus berjalan tanpa harus menunggu proses yang memakan waktu seperti permintaan jaringan atau operasi input/output (I/O) lainnya selesai terlebih dahulu. Dalam hal ini, Async JS dapat meningkatkan responsivitas dan kinerja aplikasi web. Async JS sering digunakan untuk menangani permintaan jaringan, animasi, interaksi pengguna, dan operasi I/O lainnya yang memakan waktu. 
-
 
 ```js
 // Buat file kedua : main.js
@@ -432,6 +429,41 @@ const sayHello = require('./helloWorld.js')
 console.log(sayHello("Suzume Iwato")
 
 ```
+#### 2.8. Asynchronous 
+Asynchronous JavaScript (Async JS) adalah teknik pemrograman JavaScript yang memungkinkan eksekusi kode secara non-blokir (non-blocking), sehingga kode dapat terus berjalan tanpa harus menunggu proses yang memakan waktu seperti permintaan jaringan atau operasi input/output (I/O) lainnya selesai terlebih dahulu. Dalam hal ini, Async JS dapat meningkatkan responsivitas dan kinerja aplikasi web. Async JS sering digunakan untuk menangani permintaan jaringan, animasi, interaksi pengguna, dan operasi I/O lainnya yang memakan waktu. 
+
+Dalam pemrograman, ada dua macam tata urutan eksekusi perintah-perintah yang ada dalam kode anda. `Synchronous` paling umum terjadi ketika kita menuliskan code - code. Setiap perintah di eksekusi satu persatu sesuai urutan kode yang anda tuliskan. Sebagai contoh,
+```js
+let a = 0
+console.log("ini satu")
+console.log("ini " + a)
+console.log("ini " + a+1)
+// Output : 
+//ini satu
+//ini 0
+//ini 1
+```
+
+Output dari kode diatas dijamin akan sesuai urutan, karena setiap perintah harus menunggu perintah sebelumnya selesai. Proses seperti inilah yang disebut ‘blocking’. Sedangkan, `Asynchronous` hasil eksekusi atau output tidak selalu berdasarkan urutan kode, tetapi berdasarkan waktu proses. Eksekusi dengan asynchronous tidak akan membloking atau menunggu suatu perintah sampai selesai.
+
+```js
+console.log("Daijin : Hi Suzume");
+
+let time = 2000;
+setTimeout(function () {
+  if (time > 1000) console.log("Suzume : I hate Daijin");
+  else console.log("Suzume : Hi Daijin");
+}, time);
+
+console.log(
+  `Daijin : Suzume is not like me if she doesn't response me in a second`
+);
+// Output : 
+// Daijin : Hi Suzume
+// Daijin : Suzume is not like me if she doesn't response me in a second
+// Suzume : I hate Daijin
+```
+
 
 ### Soal Latihan
 

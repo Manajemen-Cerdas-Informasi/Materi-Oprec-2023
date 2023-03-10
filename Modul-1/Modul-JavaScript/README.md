@@ -254,9 +254,9 @@ for (let mhs in mahasiswa) {
 }
 
 console.log(`Halo nama saya ${val[0]} dari ${val[1]} \numur saya ${val[2]}`);
-\\ Output : 
-\\ Halo nama saya labib dari indonesia 
-\\ umur saya 20
+// Output : 
+// Halo nama saya labib dari indonesia 
+// umur saya 20
 ```
 
 ```js

@@ -467,7 +467,7 @@ console.log(
 
 ### Soal Latihan
 
-1. Buatkan program menggunakan Function Expression dengan JavaScript dengan tujuan menampilkan kalimat (“Saya Calon Admin MCI”). 
+1. Buatkan program menggunakan Function Expression dengan JavaScript dengan tujuan menampilkan kalimat (“Saya Calon Admin MCI”) dengan delay 3000 ms lalu tampilkan nama anda. 
 2. Buatlah 2 file dengan tujuan sebagai berikut:
     - File pertama berisikan fungsi aritmatika sederhana seperti penjumlahan, pengurangan, perkalian, pembagian
     - File kedua tampilkan hasil perhitungan berikut menggunakan modul dari file pertama : `4000 / 2 + 25 - 2`

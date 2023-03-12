@@ -1,4 +1,4 @@
-# Modul 2 LBE MCI 2022: Database & SQL
+# Modul 1 Oprec MCI 2023: Database & SQL
 
 - [Database](#database)
   - [Konsep](#konsep-database)

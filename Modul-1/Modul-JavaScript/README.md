@@ -463,7 +463,9 @@ console.log(
 // Daijin : Suzume is not like me if she doesn't response me in a second
 // Suzume : I hate Daijin
 ```
-
+#### 1. Callback Function
+#### 2. Promise
+#### 3. Asnyc / AWait
 
 ### Soal Latihan
 

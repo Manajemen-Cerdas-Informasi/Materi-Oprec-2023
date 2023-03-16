@@ -98,7 +98,39 @@ Apabila ingin mulai mengupload atau istilahnya dalam Git adalah commit ke remote
 git commit -m <nama commit>
 ```
 
+##### Mengupload Commit ke Remote Repository
 
+Mengupload remote repository bisa dilakukan dengan beberapa commit sekaligus. Cara untuk mengupload commit adalah sebagai berikut.
+
+```
+git push
+```
+
+##### Branch
+
+Cara untuk membuat branch dapat dengan `git branch` ataupun `git checkout`. Pada modul ini, akan lebih difokuskan manajemen branch menggunakan `git checkout` karena lebih fleksibel. 
+
+###### Membuat Branch
+
+```
+git checkout -b <nama branch baru>
+```
+
+###### Pindah Branch
+
+```
+git checkout <nama branch>
+```
+
+Pada awalnya, `git checkout` memang diperuntukkan untuk mengganti branch saja. Tetapi, pada aplikasinya, command tersebut dapat digunakan juga untuk membuat branch.
+
+###### Melihat List Branch
+Untuk melihat branch apa saja yang kita punya di repository beserta lokasi kita saat ini, dapat menggunakan sebagai berikut.
+```
+git branch
+```
+
+##### Menghubungkan ke Remote Repository
 
 
 

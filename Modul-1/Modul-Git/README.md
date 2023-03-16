@@ -106,6 +106,13 @@ Mengupload remote repository bisa dilakukan dengan beberapa commit sekaligus. Ca
 git push
 ```
 
+##### Mengunduh Perubahan di Remote Repository
+
+Apabila temanmu sudah melakukan pull untuk semua commitnya, kamu bisa mengambil perubahannya dengan berikut ini.
+```
+git pull
+```
+
 ##### Branch
 
 Cara untuk membuat branch dapat dengan `git branch` ataupun `git checkout`. Pada modul ini, akan lebih difokuskan manajemen branch menggunakan `git checkout` karena lebih fleksibel. 
@@ -131,7 +138,36 @@ git branch
 ```
 
 ##### Menghubungkan ke Remote Repository
+Apabila repositroy masih belum terhubung dengan remote repository.
+```
+git remote add origin <link repository>
+```
 
+##### Menggabungkan Dua Branch
+Menggabungkan dua branch dapat menggunakan command berikut. Akan tetapi, akan terjadi error apabila terjadi konflik. Maka dari itu, semua konflik harus diselesaikan supaya dapat di-merge. Untuk dapat melihat konflik dengan jelas, dapat dengan menginstall ekstensi pada IDE ataupun code editor yang kalian gunakan.
+```
+git merge <nama branch>
+```
+Branch yang sedang dikerjakan sekarang akan digabungkan dengan nama branch yang ditulis. Apabila hanya ingin mengetes kesesuaian merge, dapat dengan menambahkan `experimental` di akhir command.
+
+##### Melihat History
+Melihat semua history.
+```
+git log
+```
+Melihat history pada poin-poin tertentu.
+```
+git show <nomor versi yang tertera di git log>
+```
+Kita juga bisa menggunakan kode versi tertentu untuk mengeclone versi tertentu.
+
+##### Reset
+Apabila melakukan kesalahan, dapat melakukan git reset. Akan tetapi, command ini benar-benar dapat menghilangkan pekerjaan kalian jadi berhati-hatilah dalam penggunaan `git reset`. Berikut ini adalah visualisasi tentang teknis `git reset`
+![image](https://user-images.githubusercontent.com/34309557/225557838-d62368c3-816c-4373-9a68-7d02b0522ff8.png)
+
+##### Cherry Pick
+
+##### Pull Request
 
 
 

@@ -59,7 +59,46 @@ Setelah itu, kalian akan mendapati repository kalian dengan file README.md di da
 
 #### 2.3. Command Git
 
+##### Membuat Repository
+
+Cara untuk menjadikan sebuah repository/folder di komputer menjadi repository Git.
+
+```
+git init
+```
+
 ##### Clone Repository
+
+Cara untuk mendownload repository GitHub yang benar ke repository lokal tidak dengan mendownloadnya sebagai zip, tetapi menggunakan command Git supaya Git selalu dapat melacak perubahan dan melakukan version control. Cara untuk melakukan cloning adalah seperti sebagai berikut
+```
+git clone <link github>
+```
+
+##### Memasukkan Perubahan ke Dalam Git
+
+Sebelum kita bisa mengupload perubahan kita ke remote repository yang terhubung dengan local repository Git kita, kita perlu menambahkan perubahan terlebih dahulu.
+
+```
+git add .
+```
+
+`.` menandakan untuk menambahkan semua perubahan yang terjadi di repository. Apabila tidak ingin menambahkan semuanya, kita bisa menuliskan file apa saja yang kita inginkan untuk disimpan perubahannya. Misal, apabila kita ingin menyimpan semua perubahan dalam file yang berformat `.txt`, penulisannya adalah sebagai berikut.
+
+```
+git add *.txt
+```
+
+`*` atau asterisk bersifat seperti konsep wild card.
+
+##### Melakukan Commit
+
+Apabila ingin mulai mengupload atau istilahnya dalam Git adalah commit ke remote repository, dapat dilakukan dengan sintaks seperti berikut.
+
+```
+git commit -m <nama commit>
+```
+
+
 
 
 

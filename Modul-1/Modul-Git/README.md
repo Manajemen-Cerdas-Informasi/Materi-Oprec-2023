@@ -1,6 +1,7 @@
 # Git
 
 ## Daftar Isi
+[Materi](#materi)
 - [1. Definisi](#1-definisi)
   - [1.1. Apa itu Git?](#11-apa-itu-git)
   - [1.2. Apa itu GitHub?](#12-apa-itu-github)
@@ -10,6 +11,7 @@
   - [2.2. Persiapan GitHub](#22-persiapan-github)
   - [2.3. Command Git](#23-command-git)
 
+[Tugas](#tugas)
 
 ## Materi
 
@@ -167,7 +169,21 @@ Apabila melakukan kesalahan, dapat melakukan git reset. Akan tetapi, command ini
 
 ##### Cherry Pick
 
+Fitur cherry pick memungkinkan fitur pada suatu versi pada suatu branch dibawa ke branch lain. Berikut ini adalah visualisasinya.
+
+![image](https://user-images.githubusercontent.com/34309557/225580972-59c74c14-3ee8-40a7-a34d-5ab5b812c512.png)
+
+```
+git cherry-pick <kode commit>
+```
+
 ##### Pull Request
+
+Apabila kita melakukan clone pada suatu repository publik yang tidak kita miliki akses authorisasinya, kita harus melakukan *Pull Request* apabila ingin memberikan changes yang kita ubah di repository ke repository asli. Cara untuk melakukan hal ini pertama-tama adalah dengan *Fork*. Kita perlu menyalin repository tersebut dan menjadikannya milik kita terlabeih dahulu dan barulah kita bisa melakukan perubahan pada repository yang sudah kita miliki ini. Apabila kita ingin menyatukannya dengan repository asli, kita harus melakukan *Pull Request* yang harus disetujui dulu oleh author pemilik repository. Apabila disetujui, kita akan menjadi kontributor dan code kita akan tersimpan pada repository asli.
+
+## Materi
+
+Lakukanlah *Pull Request* pada repository [ini](https://github.com/Manajemen-Cerdas-Informasi/camin-mci-2023) dengan memberikan perubahan nama beserta link ke sosial media kalian yang bertindak seperti CV (LinkedIn, GitHub, Medium, CodePen, dll) di README.
 
 
 

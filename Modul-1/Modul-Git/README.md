@@ -7,14 +7,8 @@
 
 - [2. Penggunaan Git](#2-penggunaan-git)
   - [2.1. Instalasi Git](#21-instalasi-git)
-  - [2.2. Instalasi Create React App](#22-instalasi-create-react-app)
-  - [2.3. Menjalankan Aplikasi ReactJS](#23-menjalankan-aplikasi-reactjs)
-  - [2.4. Struktur Folder ReactJS](#24-struktur-folder-reactjs)
-  - [2.5. Struktur File ReactJS](#25-struktur-file-reactjs)
-- [3. Praktik Membuat Aplikasi ReactJS](#3-praktik-membuat-aplikasi-reactjs)
-  - [3.1 Repository](#31-repository)
-  - [3.2. Daftar Isi Repository](#32-daftar-isi-repository)
-
+  - [2.2. Persiapan GitHub](#22-persiapan-github)
+  - [2.3. Command Git](#23-command-git)
 
 
 ## Materi
@@ -36,6 +30,38 @@ Mendengar istilah Git, sering kali akan membuat kita teringat dengan website yan
 ### 2. Penggunaan Git
 
 #### 2.1. Instalasi Git
+
 Setelah menginstall Git di komputer, cari *Environment Variables* pada start.
+
+![image](https://user-images.githubusercontent.com/34309557/225525423-8d41878d-c094-4ed7-b296-b1885d6b0011.png)
+
+Lihat *Path* yang ada pada *System Variable* dengan menekan tombol *Edit*
+
+![image](https://user-images.githubusercontent.com/34309557/225525606-c9830656-832a-4c77-8be4-7632279b6960.png)
+
+Pastikan sudah ada path untuk Git tertulis di dalama sana.
+
+![image](https://user-images.githubusercontent.com/34309557/225525733-8570ed06-b1d5-41bf-aeb5-6b1ecb5d6d1d.png)
+
+Apabila sudah, tutup dan buka lagi command line dan tes dengan `git help`.
+
+#### 2.2. Persiapan GitHub
+
+Pastikan kalian sudah memiliki akun GitHub. Untuk membuat repository baru, silahkan menuju ke profil kalian. Setelah itu, pergi ke tab *Repository* dan klik tombol *New*.
+
+![image](https://user-images.githubusercontent.com/34309557/225526184-d3f3500d-9563-479c-bbcf-57a7e0b5ff95.png)
+
+Untuk mengikuti pembelajaran modul ini, silahkan membuat repository dengan setting sebagai berikut.
+
+![image](https://user-images.githubusercontent.com/34309557/225526843-2ecb1f9e-c1f4-474d-80a1-2064cd1df1f8.png)
+
+Setelah itu, kalian akan mendapati repository kalian dengan file README.md di dalamnya.
+
+#### 2.3. Command Git
+
+##### Clone Repository
+
+
+
 
 

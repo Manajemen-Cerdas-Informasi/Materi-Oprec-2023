@@ -53,11 +53,9 @@ Pastikan kalian sudah memiliki akun GitHub. Untuk membuat repository baru, silah
 
 ![image](https://user-images.githubusercontent.com/34309557/225526184-d3f3500d-9563-479c-bbcf-57a7e0b5ff95.png)
 
-Untuk mengikuti pembelajaran modul ini, silahkan membuat repository dengan setting sebagai berikut.
-
 ![image](https://user-images.githubusercontent.com/34309557/225526843-2ecb1f9e-c1f4-474d-80a1-2064cd1df1f8.png)
 
-Setelah itu, kalian akan mendapati repository kalian dengan file README.md di dalamnya.
+Apabila kalian melakukan setting yang sesuai dengan gambar di atas, kalian akan mendapati repository kalian dengan file README.md di dalamnya.
 
 #### 2.3. Command Git
 

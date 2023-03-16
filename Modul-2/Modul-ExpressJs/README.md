@@ -75,3 +75,33 @@ Struktur dalam membuat route sebagai berikut </br>
 
 Jika server dijalankan ulang dan buka kembali aplikasinya di localhost, maka kita dapat mengarahkan ke `/dunia` dan akan tampil sebagai berikut </br>
 <img width="358" alt="image" src="https://user-images.githubusercontent.com/87472849/220676271-07df3f93-fd6e-419e-8bbf-2872dac20be2.png"> </br>
+
+### 3. Penggunaan Sequelize
+#### 3.1 Apa Itu Sequelize?
+Apakah Sequelize itu? Sequelize adalah ORM (Object Relational Mapping) untuk NodeJS maupun TypeScript yang dapat digunakan pada Database Oracle, MySQL, MariaDB, SQLite and SQL Server, dan sebagainya. Sequelize diperlukan pada backend NodeJS karena dapat digunakan untuk generate mode, migration, maupun seeder secara otomatis. Selain itu developer juga tidak perlu membuat query sql dalam berinteraksi dengan DB, karena ORM ini dapat berinteraksi dengan berbagai macam jenis DB dalam fungsi atau method yang sama.</br></br>
+<img width="870" alt="image" src="https://user-images.githubusercontent.com/87472849/224042280-08ab43d3-5833-4bfc-b4af-6a27a03c96d3.png">
+
+#### 3.2. Setup Sequelize
+Dalam menggunakan Sequelize pada projek NodeJS, kita perlu melakukan setup sebagai berikut
+
+1. Install Sequelize. Dalam menginstall Sequelize perlu dilakukan perintah
+```
+npm install sequelize-cli
+```
+jika berhasil diinstall akan sebagai berikut </br>
+<img width="537" alt="image" src="https://user-images.githubusercontent.com/87472849/224047160-37b325fb-a0dc-4983-adc7-8b108960b28b.png">
+
+2. Inisialisasi. Sequelize perlu diinisialisasi sehingga lakukan perintah berikut
+```
+npx sequelize init
+```
+maka akan dihasilkan beberapa folder seperti config, seeders, dan migration </br>
+<img width="207" alt="image" src="https://user-images.githubusercontent.com/87472849/224048133-5cff351d-9b71-4a78-985f-00b658a7411e.png">
+
+3. Connect to DB. Agar dapat terhubung ke Database, maka perlu mengubah file config.json sesuai kebutuhan DB kita. </br>
+<img width="443" alt="image" src="https://user-images.githubusercontent.com/87472849/224049078-176f574a-bd59-452d-a980-70497a281b79.png">
+
+Jika sudah melakukan langkah-langkah tersebut, maka sequelize sudah dapat digunakan dan dapat terkoneksi ke database yang kita siapkan. Sebagai info tambahan, biasanya file `config.json` akan diubah ke js `config.js` karena variabel koneksi ke DB biasanya hal rahasia dan perlu disimpan ke `.env`. Sehingga config perlu sebagai JS agar dapat melakukan import variabel dari file yang berbeda.
+
+
+

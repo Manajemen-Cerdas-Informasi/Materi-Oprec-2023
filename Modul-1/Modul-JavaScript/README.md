@@ -54,3 +54,463 @@ console.log("Hello World")
 
 5. **Banyak perusahaan yang menggunakan Javascript**
 ### 2. Pengenalan Javascript
+#### 2.1. Variabel dan Tipe Data
+Variabel dalam javascript sama halnya dengan variabel pada bahasa pemrograman pada umumnya, yaitu merupakan sebuah tempat untuk menyimpan nilai atau data yang akan digunakan dalam program yang akan dibuat. Namun, Javascript mempunyai cara sendiri untuk mendefinisikan variabel tersebut. Terdapat tiga cara pendefinisian variabel dalam javascript, yaitu `var`, `let`, `const`. Pada awalnya, pendefinisian variabel hanya menggunakan `var`, tetapi seiring berkembang muncul konsep `let` dan `const`. Ketiganya mempunyai perbedaan ketika digunakan tergantung pada kebutuhan yang akan dikerjakan.
+1. `var`: Variabel yang dideklarasikan dengan `var` memiliki lingkup (scope) yang cukup luas, yaitu lingkup fungsi atau lingkup global. Artinya, variabel yang dideklarasikan dengan `var` dapat diakses dari mana saja di dalam fungsi atau di seluruh kode. Variabel yang dideklarasikan dengan `var` dapat diinisialisasi ulang dan nilainya dapat diubah di mana saja di dalam fungsi atau kode.
+
+2. `let`: Variabel yang dideklarasikan dengan `let` memiliki lingkup yang lebih terbatas dibandingkan dengan var, yaitu hanya lingkup blok kode di mana variabel dideklarasikan. Variabel yang dideklarasikan dengan `let` tidak dapat diinisialisasi ulang, tetapi nilainya dapat diubah di dalam blok kode tempat variabel dideklarasikan.
+
+3. `const`: Variabel yang dideklarasikan dengan `const` juga memiliki lingkup yang terbatas seperti `let`, yaitu hanya lingkup blok kode di mana variabel dideklarasikan. Namun, perbedaannya adalah nilai variabel yang dideklarasikan dengan `const` tidak dapat diubah setelah dideklarasikan. Variabel yang dideklarasikan dengan `const` harus diinisialisasi saat dideklarasikan, dan nilai variabel tidak dapat diubah setelahnya.
+
+Berikut contoh penggunaan ketiganya:
+```js
+var a = 10;
+const b = 20;
+let c = 30;
+
+console.log(a); // Output : 10
+console.log(b); // Output : 20
+console.log(c); // Output : 30
+
+a = a + 5;
+// b = b + 5;
+c = c + 5;
+
+console.log(a); // Output : 15
+console.log(b); // Output : TypeError: Assignment to constant variable.
+console.log(c); // Output : 35
+
+{
+  a = 50;
+  c = c + 5;
+  const d = 50;
+  let e = 50;
+
+  console.log(a); // Output : 50
+  console.log(d); // Output : 50
+  console.log(e); // Output : 50
+}
+
+console.log(a); // Output : 50
+console.log(b); // Output : 20
+console.log(c); // Output : 40
+console.log(d); // Output : ReferenceError: d is not defined
+console.log(e); // Output : ReferenceError: e is not defined
+
+```
+
+Dalam Javascript,  terdapat beberapa macam tipe data
+| No | Tipe Data | Contoh | 
+| ------------- | ------------- | ------------- |
+| 1. | String | "Halo, Nama Saya ... " |
+| 2. | Number | 8 |
+| 3. | Array | [1,2,3,5,8,13,21] |
+| 4. | Boolean | true or false |
+| 5. | Undefined | undefined |
+| 6. | Null | Null |
+| 7. | Object | {firstName:"John", lastName:"Doe"} |
+
+#### 2.2. Operator Aritmatika, Logika, perbandingan
+##### 2.2.1 Operator Aritmatika
+| Operator  | Deskripsi |
+| ------------- | ------------- |
+| +  | Addition  |
+| -  | Subtraction  |
+| *  | Multiplication  |
+| **  | Exponentiation (ES2016)  |
+| / | Division  |
+| % | Modulus (Division Remainder)  |
+| ++ | Increment  |
+| -- | Decrement  |
+
+##### 2.2.2 Operator Logika
+| Operator | Deskripsi |
+| ------------- | ------------- |
+| && 	| logical and |
+|  II 	| logical or |
+| ! 	| logical not| 
+
+##### 2.2.3 Operator perbandingan
+| Operator | Deskripsi |
+| ------------- | ------------- |
+| == 		| equal to |
+| === 		| equal value and equal type |
+| != 		| not equal |
+| !== 		| not equal value or not equal type |
+| > 		| greater than |
+| < 		| less than |
+| >= 		| greater than or equal to |
+| <= 		| less than or equal to |
+| ? 		| ternary operator |
+
+#### 2.3. Conditional Statements
+##### 2.3.1 If
+```javascript
+let a = 10
+
+if(a == 10){
+  console.log("a sama dengan 10")
+}
+// Output : a sama dengan 10
+```
+
+##### 2.3.2 if else
+```javascript
+let a = 15
+
+if(a == 10){
+  console.log("a sama dengan 10")
+} else {
+  console.log("a tidak sama dengan 10")
+}
+// Output : a tidak sama dengan 10
+```
+
+##### 2.3.3 else if
+```javascript
+let a = 15
+
+if(a == 10){
+  console.log("a sama dengan 10")
+} else if (a > 10) {
+  console.log("a lebih besar dari 10")
+} else if (a < 10) {
+  console.log("a kurang dari 10")
+} else {
+  console.log("a undefined")
+}
+// Output : a lebih besar dari 10
+```
+
+##### 2.3.4 switch
+```javascript
+let a = 10
+
+switch(true){
+  case a == 10:
+    console.log("a sama dengan 10")
+    break
+  case a > 10:
+    console.log("a lebih besar dari 10")
+    break
+  case a < 10:
+    console.log("a kurang dari 10")
+    break
+  default:
+    console.log("a undefined")
+    break
+    
+}
+```
+#### 2.4. Looping Statements
+##### 2.4.1 While
+```javascript
+let i = 0;
+while (i < 5) {
+  console.log(i)
+  i++;
+}
+// output : 
+// 0
+// 1
+// 2
+// 3
+// 4
+
+```
+#### 2.4.2 For
+```
+for(let i = 0; i<5; i++){
+  console.log(i)
+}
+// output : 
+// 0
+// 1
+// 2
+// 3
+// 4
+```
+
+#### 2.4.2 For in
+`for in` digunakan untuk melakukan iterasi pada sebuah objek.
+
+```javascript
+for (var propertyName in object) {
+  // blok kode yang akan dijalankan untuk setiap properti objek
+}
+```
+
+`propertyName`: variabel yang digunakan untuk menampung nama properti objek pada setiap iterasi.
+
+`object`: objek yang akan diiterasi.
+
+Berikut Contoh penggunaannya : 
+```javascript
+const mahasiswa = { nama: "labib", asal: "indonesia", age: 20 };
+
+let val = [];
+for (let mhs in mahasiswa) {
+  val.push(mahasiswa[mhs]);
+}
+
+console.log(`Halo nama saya ${val[0]} dari ${val[1]} \numur saya ${val[2]}`);
+// Output : 
+// Halo nama saya labib dari indonesia 
+// umur saya 20
+```
+
+```js
+const mahasiswa = [
+  { nama: "Sota", asal: "indonesia", age: 20 },
+  { nama: "Tamaki", asal: "indonesia", age: 21 },
+  { nama: "Serizawa", asal: "indonesia", age: 22 },
+];
+
+for (let mhs in mahasiswa) {
+  //   val.push(mahasiswa[mhs]);
+  console.log(
+    `Halo nama saya ${mahasiswa[mhs].nama} dari ${mahasiswa[mhs].asal} \numur saya ${mahasiswa[mhs].age}`
+  );
+}
+
+// Output : 
+// Halo nama saya Sota dari indonesia
+// umur saya 20
+// Halo nama saya Tamaki dari indonesia
+// umur saya 21
+// Halo nama saya Serizawa dari indonesia
+// umur saya 22
+```
+#### 2.4.2 For of
+`for of` digunakan untuk melakukan iterasi pada objek iterables, seperti array, string, set.
+
+```javascript
+for (var propertyName of object) {
+  // blok kode yang akan dijalankan untuk setiap properti objek iterable
+}
+```
+
+```js
+const fruits = ['apple', 'banana', 'orange'];
+
+for (let fruit of fruits) {
+  console.log(fruit);
+}
+// Output : 
+// apple
+// banana
+// orange
+```
+
+```js
+const message = 'Hello World!';
+
+for (let char of message) {
+  console.log(char);
+}
+// Output : 
+// H
+// e
+// l
+// l
+// o
+
+// W
+// o
+// r
+// l
+// d
+// !
+
+```
+
+#### 2.5. Function
+Function atau fungsi adalah salah satu fitur penting dalam pemrograman yang memungkinkan Anda untuk menulis kode yang dapat digunakan kembali atau dipanggil kembali pada bagian lain dari program. Function pada dasarnya adalah blok kode yang dapat dieksekusi secara terpisah dari program utama, dan dapat menerima masukan (parameter) dan menghasilkan keluaran (return value) (tidak harus). Dalam javascript terdapat tiga cara untuk mendefinisikan function.
+
+##### 1. Function Declaration
+Cara paling umum untuk membuat function di JavaScript adalah dengan menggunakan Function Declaration. Function Declaration biasanya digunakan untuk membuat function yang dapat dipanggil di seluruh program.
+
+```js
+function tambah(a, b) {
+  return a + b;
+}
+```
+
+##### 2. Function Expression
+Function Expression adalah cara lain untuk membuat function di JavaScript. Function Expression biasanya digunakan untuk membuat function yang hanya digunakan di dalam satu blok kode tertentu.
+
+```js
+var kurang = function(a, b) {
+  return a - b;
+}
+```
+
+##### 3. Arrow Function
+Arrow Function adalah cara baru untuk membuat function di JavaScript. Arrow Function biasanya digunakan untuk membuat function yang sederhana dan mudah dibaca.
+```js
+var kali = (a, b) => { 
+  return a * b
+};
+```
+```js
+hello = val => "Hello " + val; 
+```
+
+#### 2.6. Object and Array
+##### 2.6.1. Object
+`Object` adalah tipe data yang penting dan sering digunakan. Object adalah kumpulan dari properti (properties) dan metode (methods) yang merepresentasikan suatu objek dalam dunia nyata. Properti adalah variabel yang berisi nilai, sedangkan metode adalah function yang memungkinkan objek untuk melakukan tindakan tertentu. Berikut adalah contoh object dalam JavaScript:
+
+```js
+var mahasiswa = {
+  nama: "Labib",
+  asal: "Indonesia",
+  age: 25,
+  say: function() {
+    return "Halo saya " + this.nama + " dari " + this.asal;
+  }
+};
+console.log(mahasiswa.say())
+// Output : Halo saya Labib dari Indonesia
+```
+
+Untuk mengakses nilai dalam objek dapat menggunakan beberapa cara:
+```js
+// mengakses properti 
+objectName.propertyName
+objectName["propertyName"]
+
+// mengakses methods
+objectName.methodName()
+```
+
+Nilai dalam properti objek dapat kita ubah dengan cara re-assign value ke properti tersebut
+```js
+const obj = {first:"first", second:"second"}
+obj.first = "satu"
+obj["second"] = "dua"
+
+console.log(obj)
+// Output : { first: 'satu', second: 'dua' }
+```
+
+##### 2.6.2. Array
+
+`Array` adalah struktur data dalam JavaScript yang digunakan untuk menyimpan kumpulan nilai (value) dalam satu variabel. Array pada dasarnya adalah kumpulan dari nilai yang dikelompokkan dalam satu tempat. Setiap nilai pada array memiliki indeks (index) yang dimulai dari 0 dan diurutkan secara teratur. Berikut contoh penggunaan array.
+
+```js
+const arr = [1,2,3,4,5]
+arr.push(6)  // menambahkan nilai 1 ke akhir array [ Output : [ 1, 2, 3, 4, 5, 6 ] ]
+arr.pop() // menghapus nilai terakhir dari array [ Output : [ 1, 2, 3, 4, 5 ] ] 
+arr.shift() // menghapus nilai pertama dari array [ Output : [ 2, 3, 4, 5 ] ] 
+arr.unshift(10) // menambahkan nilai baru di awal array [ Output : [ 10, 2, 3, 4, 5 ] ] 
+arr.splice(1,0,100,120,130) // menambahkan nilai dimulai dari index 1 sebanyak nilai ( 100, 120, 130) menghapus nilai sebanyak 0 [ Output : [10, 100, 120, 130, 2, 3, 4, 5] ] 
+```
+Referensi methods pada yang bisa digunakan dalam array : https://www.w3schools.com/jsref/jsref_obj_array.asp
+
+#### 2.7. Module 
+Module dalam JavaScript adalah cara untuk mengorganisasi kode menjadi beberapa file yang terpisah dan dapat digunakan kembali di beberapa bagian dalam aplikasi. Dalam modul, variabel, fungsi, atau kelas tertentu dapat dideklarasikan sebagai "eksport" yang dapat diakses dari modul lain, dan modul tersebut dapat mengimpor variabel, fungsi, atau kelas dari modul lain untuk digunakan di dalamnya.
+
+Modul pada JavaScript dapat digunakan pada lingkungan pengembangan seperti Node.js atau browser modern yang mendukung standar JavaScript seperti ECMAScript 6 (ES6) atau yang lebih baru. Untuk menggunakannya, kita perlu mendefinisikan modul dengan menentukan variabel atau fungsi mana yang dapat diakses dari luar modul. Kemudian, modul tersebut dapat diimpor pada file JavaScript yang membutuhkan dengan menggunakan perintah import, tetapi kita dapat juga mendefinisikannya dengan menggunakan variable.
+
+```js
+// Buat file pertama : helloWorld.js
+
+const sayHello = (name) => {
+  return "Hello " + name;
+}
+
+module.exports = {sayHello};
+```
+
+```js
+// Buat file kedua : main.js
+const sayHello = require('./helloWorld.js')
+
+console.log(sayHello("Suzume Iwato")
+
+```
+#### 2.8. Asynchronous 
+Asynchronous JavaScript (Async JS) adalah teknik pemrograman JavaScript yang memungkinkan eksekusi kode secara non-blokir (non-blocking), sehingga kode dapat terus berjalan tanpa harus menunggu proses yang memakan waktu seperti permintaan jaringan atau operasi input/output (I/O) lainnya selesai terlebih dahulu. Dalam hal ini, Async JS dapat meningkatkan responsivitas dan kinerja aplikasi web. Async JS sering digunakan untuk menangani permintaan jaringan, animasi, interaksi pengguna, dan operasi I/O lainnya yang memakan waktu. 
+
+Dalam pemrograman, ada dua macam tata urutan eksekusi perintah-perintah yang ada dalam kode anda. `Synchronous` paling umum terjadi ketika kita menuliskan code - code. Setiap perintah di eksekusi satu persatu sesuai urutan kode yang anda tuliskan. Sebagai contoh,
+```js
+let a = 0
+console.log("ini satu")
+console.log("ini " + a)
+console.log("ini " + a+1)
+// Output : 
+//ini satu
+//ini 0
+//ini 1
+```
+
+Output dari kode diatas dijamin akan sesuai urutan, karena setiap perintah harus menunggu perintah sebelumnya selesai. Proses seperti inilah yang disebut ‘blocking’. Sedangkan, `Asynchronous` hasil eksekusi atau output tidak selalu berdasarkan urutan kode, tetapi berdasarkan waktu proses. Eksekusi dengan asynchronous tidak akan membloking atau menunggu suatu perintah sampai selesai.
+
+```js
+console.log("Daijin : Hi Suzume");
+
+let time = 2000;
+setTimeout(function () {
+  if (time > 1000) console.log("Suzume : I hate Daijin");
+  else console.log("Suzume : Hi Daijin");
+}, time);
+
+console.log(
+  `Daijin : Suzume is not like me if she doesn't response me in a second`
+);
+// Output : 
+// Daijin : Hi Suzume
+// Daijin : Suzume is not like me if she doesn't response me in a second
+// Suzume : I hate Daijin
+```
+#### 1. Callback Function
+#### 2. Promise
+#### 3. Asnyc / AWait
+
+### Soal Latihan
+
+1. Buatkan program menggunakan Function Expression dengan JavaScript dengan tujuan menampilkan kalimat (“Saya Calon Admin MCI”) dengan delay 3000 ms lalu tampilkan nama anda. 
+2. Buatlah 2 file dengan tujuan sebagai berikut:
+    - File pertama berisikan fungsi aritmatika sederhana seperti penjumlahan, pengurangan, perkalian, pembagian
+    - File kedua tampilkan hasil perhitungan berikut menggunakan modul dari file pertama : `4000 / 2 + 25 - 2`
+
+3. np.argwhere merupakan sebuah fungsi yang tersedia pada library numpy di bahasa pemrograman python. Fungsi tersebut akan mengembalikan sebuah array 2 dimensi yang berisikan index - index value pada array n-d yang tidak bernilai 0, lakukan pencarian secara mandiri untuk mengetahui lebih lanjut mengenai fungsi np.argwhere. Implementasikan fungsi tersebut pada bahasa pemrograman Javascript untuk input array 3 dimensi.
+
+Fungsi berikut mungkin akan digunakan dalam menyelesaikan soal : 
+```js
+function dim(arr) {
+  if (arr instanceof Array) {
+    return [arr.length].concat(dim(arr[0]));
+  } else {
+    return [];
+  }
+}
+// fungsi di atas akan mengembalikan ukuran dari array yang menjadi input value.
+```
+
+```
+input :
+[
+  [
+    [1, 0, 0],
+    [0, 1, 0],
+    [0, 0, 0],
+  ],
+  [
+    [1, 0, 0],
+    [0, 1, 0],
+    [0, 0, 0],
+  ],
+  [
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+  ],
+]
+output : 
+[
+  [0, 0, 0],
+  [0, 1, 1],
+  [1, 0, 0],
+  [1, 1, 1],
+]

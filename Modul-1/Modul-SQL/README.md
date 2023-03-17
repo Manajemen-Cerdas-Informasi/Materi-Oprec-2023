@@ -163,7 +163,13 @@ DML digunakan untuk memanipulasi data yang ada dalam suatu tabel. Berisi berbaga
    ```MySQL
    INSERT INTO Mahasiswa(NRP, Nama, Usia, Semester)
    VALUES('5025201094', 'Reyner', 20, 6);
-   /* Menambah record baru ke tabel */
+    /* Menambahkan record yang atributnya
+    NRP : 5025201094
+    Nama : Reyner
+    Usia : 20
+    Semester : 5
+    IPK : 3.99
+    ... */
    ```
 
 2. <b>DELETE</b> untuk menghapus <i>record</i> pada tabel.
@@ -284,11 +290,11 @@ DML digunakan untuk memanipulasi data yang ada dalam suatu tabel. Berisi berbaga
 Silahkan membuat tabel baru dengan struktur berikut
 
 ```MySQL
-CREATE TABLE Mata Kuliah (                                       /* Membuat tabel 'Mata Kuliah' dengan 4 atribut */
+CREATE TABLE mata_kuliah (                                       /* Membuat tabel 'Mata Kuliah' dengan 4 atribut */
    ID_MK INT PRIMARY KEY,
    NRP VARCHAR(16) NOT NULL,                                   /* NRP tidak NULL */
    Nama_MK VARCHAR(50) NOT NULL,                                  /* Nama MK tidak NULL */
-   FOREIGN KEY (NRP) REFERENCES mahasiswa(nrp)
+   FOREIGN KEY (NRP) REFERENCES mahasiswa(nrp)                  /* Foreign Key */
 );
 ```
 

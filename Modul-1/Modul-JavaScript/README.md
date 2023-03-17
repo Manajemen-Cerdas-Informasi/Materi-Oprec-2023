@@ -514,3 +514,4 @@ output :
   [1, 0, 0],
   [1, 1, 1],
 ]
+4. [OPTIONAL] Implementasi Asynchronous dengan membuat minimal 5 impian yang ingin kalian raih pada tahun 2023, bisa menggunakan salah satu dari ketiga macam Asynchronous , (Menggunakan ketiganya akan lebih baik).

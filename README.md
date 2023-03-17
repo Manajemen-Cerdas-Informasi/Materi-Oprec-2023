@@ -11,9 +11,9 @@ Daftar persyaratan yang harus dipenuhi oleh calon admin MCI 2023 adalah sebagai 
 
 ## Daftar Isi
 1. Modul 1 
-    - SQL        : [SQL](#modul-1)
     - GIT        : [GIT](#modul-1)
     - JavaScript : [JavaScript](#modul-1)
+    - SQL        : [SQL](#modul-1)
 2. Modul 2 
     - ExpressJS  : [Express](#modul-1)
 3. Modul 3 

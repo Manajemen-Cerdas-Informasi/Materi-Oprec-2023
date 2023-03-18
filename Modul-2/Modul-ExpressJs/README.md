@@ -11,9 +11,9 @@
 - [3. Penggunaan Sequelize](#3-penggunaan-sequelize)
   - [3.1 Apa Itu Sequelize?](#31-apa-itu-sequelize)
   - [3.2. Setup Sequelize](#32-setup-sequelize)
-  - [3.3. Migration](#33-migration)
-  - [3.4. Model](#34-model)
-  - [3.5. ORM](#35-orm)
+  - [3.3. Model dan Migration](#33-model-dan-migration)
+  - [3.4. Seeder](#35-seeder)
+ - [4. CRUD](#4-CRUD)
   
 ## Materi
 ### 1. Pengenalan ExpressJS
@@ -103,5 +103,73 @@ maka akan dihasilkan beberapa folder seperti config, seeders, dan migration </br
 
 Jika sudah melakukan langkah-langkah tersebut, maka sequelize sudah dapat digunakan dan dapat terkoneksi ke database yang kita siapkan. Sebagai info tambahan, biasanya file `config.json` akan diubah ke js `config.js` karena variabel koneksi ke DB biasanya hal rahasia dan perlu disimpan ke `.env`. Sehingga config perlu sebagai JS agar dapat melakukan import variabel dari file yang berbeda.
 
+#### 3.3. Model dan Migration
+Salah satu kegunaan Sequelize adalah untuk berinteraksi dengan tabel yang ada di database. Untuk melakukan hal tersebut perlu adanya model dan migration. Apakah kedua hal tersebut?
+1. Model </br>
+Model adalah struktur yang mewakili tabel yang ada di database ke sistem aplikasi. Model ini berisi properti dan hubungan relasi dengan model lainnya. Untuk membuat model dalam sequelize perlu melakukan command di terminal sebagai berikut, contoh kita akan membuat model mahasiswa:
+```
+npx sequelize model:create --name mahasiswa --attributes nama:string,nrp:string,jurusan:string,umur:integer
+```
+<img width="706" alt="image" src="https://user-images.githubusercontent.com/87472849/226077792-1e04580a-853d-43b2-956e-6803c7d19def.png">
+maka akan tercipta model baru bernama mahasiswa sebagai berikut
+<img width="645" alt="image" src="https://user-images.githubusercontent.com/87472849/226077829-e8c391b7-428c-423b-a400-973ce29e1d31.png">
+
+2. Migration </br>
+Migration adalah metode untuk membuat tabel baru ke database. Metode ini diperlukan karena perlu adanya standarisasi tabel dalam aplikasi yang sama agar tidak terjadi error. Jika kita membuat model seperti command di atas, maka sequelize akan otomatis membuat migration untuk tabel yang sama dengan model tersebut. Berikut adalah hasil auto generate migration dari model mahasiswa:
+<img width="569" alt="image" src="https://user-images.githubusercontent.com/87472849/226082074-41bebdfe-02e7-4781-9002-d0a12b791345.png">
+
+Namun jika kita ingin membuat migration sendiri tanpa membuat model terlebih dahulu, kita dapat melakukan command di terminal sebagai berikut:
+```
+npx sequelize migration:create --name create-mahasiswa-table
+```
+
+Migration di atas sudah dapat digunakan. Untuk melakukan migration, lakukan perintah berikut:
+```
+npx sequelize db:migrate
+```
+Perintah tersebut akan menjalankan migration yang sedang pending atau yang belum pernah dijalankan.
+
+Note: Pastikan aplikasi sudah terhubung dengan database agar migration dapat dilakukan. Dan pastikan juga menginstall myql pada project tersebut dengan perintah `npm install mysql2`
+
+<img width="486" alt="image" src="https://user-images.githubusercontent.com/87472849/226084796-3ef05e97-017a-44e1-8f02-4a13eeaf991c.png">
+
+Berikut adalah tabel yang dibuat pada database setelah melakukan migrasi:
+<img width="960" alt="image" src="https://user-images.githubusercontent.com/87472849/226084831-08f4956e-dc9e-4d37-9473-ccbf1cd6921e.png">
+
+Dapat dilihat dari gambar di atas, terdapat satu tabel baru yang otomatis dibuat oleh Sequelize yaitu `sequelizemeta`. Tabel ini berisi migrasi apa saja yang telah dilakukan agar jika kita melakukan migrasi lagi maka tidak terjadi duplikasi migrasi.
+
+#### 3.4. Seeder
+Seeder adalah metode untuk memasukkan data awal yang diperlukan ke dalam tabel di database. Hal ini diperlukan karena beberapa kasus projek pembuatan aplikasi tidak selalu database dimulai dengan data kosong. Sebagai contoh untuk membuat aplikasi pemesanan tiket kereta api, ketika aplikasi dideploy seharusnya sudah ada data stasiun kereta api tanpa menunggu admin menginputkan data stasiun satu per satu. Untuk itulah seeder diperlukan dalam menginputkan semua data stasiun dengan sekali perintah.
+
+Salah satu fitur Sequelize adalah dapat melakukan seeder. Contoh pada tabel mahasiswa di atas, kita dapat membuat seeder dengan perintah di terminal sebagai berikut:
+```
+npx sequelize seed:create --name create-seeder-mahasiswa
+```
+
+Maka di folder seeders terdapat file baru sebagai berikut:
+
+<img width="664" alt="image" src="https://user-images.githubusercontent.com/87472849/226085373-57a72076-7647-4e4a-b698-5a0ea6c5fa02.png">
+
+File tersebut masih kosong, sehingga kita perlu mengisi fungsi up dengan fungsi insert data mahasiswa yang ingin kita inputkan. Contohnya sebagai berikut:
+
+<img width="353" alt="image" src="https://user-images.githubusercontent.com/87472849/226085507-6a3aba4a-bb3c-456c-b4e5-7b85b8f9ac0a.png">
+
+Untuk menjalankan seeder, kita perlu melakukan perintah di terminal sebagai berikut:
+```
+npx sequelize db:seed:all
+```
+Perintah tersebut akan menjalankan semua seeder yang tersedia.
+
+<img width="490" alt="image" src="https://user-images.githubusercontent.com/87472849/226085571-dd41a1eb-cff4-4cef-91cd-9a7443d397d5.png">
+
+Jika kita buka tabel mahasiswa di database, maka data di seeder akan masuk ke tabel sebagai berikut:
+
+<img width="855" alt="image" src="https://user-images.githubusercontent.com/87472849/226085739-cf831032-c97a-48ec-b60a-8f58c62b3398.png">
 
 
+Berikut merupakan penggunaan Sequelize. Untuk info lengkapnya lakukan perintah berikut maka akan ditampilkan perintah-perintah yang bisa dilakukan oleh Sequelize
+```
+npx sequelize
+```
+
+<img width="516" alt="image" src="https://user-images.githubusercontent.com/87472849/226085869-5da728b4-846c-423f-bda4-7e8e69b21048.png">

@@ -12,8 +12,8 @@
   - [3.1 Apa Itu Sequelize?](#31-apa-itu-sequelize)
   - [3.2. Setup Sequelize](#32-setup-sequelize)
   - [3.3. Model dan Migration](#33-model-dan-migration)
-  - [3.4. Seeder](#35-seeder)
- - [4. CRUD](#4-CRUD)
+  - [3.4. Seeder](#34-seeder)
+ - [4. CRUD](#4-crud)
   
 ## Materi
 ### 1. Pengenalan ExpressJS
@@ -173,3 +173,349 @@ npx sequelize
 ```
 
 <img width="516" alt="image" src="https://user-images.githubusercontent.com/87472849/226085869-5da728b4-846c-423f-bda4-7e8e69b21048.png">
+
+### 4. CRUD
+Sebagai implementasi aplikasi di Backend yang telah kita buat, maka kita akan membuat CRUD (Create, Read, Update, Delete) dengan data mahasiswa yang telah kita konfigurasikan. CRUD ini kita akan membuat 4 endpoint utama yaitu membaca data mahasiswa, membuat data mahasiswa, mengubah data mahasiswa, dan menghapus data mahasiswa. Sebelum membuat aplikasi CRUD data mahasiswa, kita perlu memahami hal berikut:
+
+#### HTTP Method
+Terdapat banyak method pada HTTP, yang umum digunakan ada 4 sebagai berikut:
+1. GET  : digunakan untuk meminta data dari sebuah resource di server
+2. POST : digunakan untuk mengirimkan data ke server untuk diproses
+3. PUT  : digunakan untuk mengirimkan data untuk menggantikan resource yang ada di server
+4. DELETE : digunakan untuk menghapus sebuah resource di server
+Keempat metode tersebut setidaknya mewakili CRUD yang akan kita buat.
+
+#### Status Code
+Status code adalah bagian dari protokol HTTP yang mengindikasikan apakah permintaan HTTP telah berhasil atau tidak. Berikut adalah beberapa macam status code HTTP yang umum digunakan:
+
+- 1xx (Informational): Menunjukkan bahwa permintaan telah diterima dan server sedang memproses permintaan.
+- 2xx (Successful): Menunjukkan bahwa permintaan telah berhasil diterima, dipahami, dan dijalankan dengan sukses.
+- 3xx (Redirection): Menunjukkan bahwa permintaan tidak berhasil, tetapi masih memungkinkan untuk diproses dengan mengikuti instruksi pengalihan.
+- 4xx (Client Error): Menunjukkan bahwa permintaan tidak berhasil karena ada kesalahan dari sisi klien atau pengguna, seperti kesalahan sintaksis atau otorisasi yang tidak valid.
+- 5xx (Server Error): Menunjukkan bahwa permintaan tidak berhasil karena ada kesalahan pada server, seperti kegagalan jaringan atau masalah server.
+
+Contoh status code yang umum digunakan adalah:
+
+<img width="630" alt="image" src="https://user-images.githubusercontent.com/87472849/227537397-df933c58-6998-4dca-9d54-b42df1144df1.png">
+
+#### Service Repository Pattern
+Service Repository Pattern adalah pola dalam mengimplementasikan aplikasi dengan memecah kasus menjadi 3 fungsi, yaitu:
+1. Controller : Tempat dilakukannya request pada endpoint dan memanggil service.
+2. Service : Tempat untuk menyimpan business logic dan memanggil repository.
+3. Repository : Tempat untuk mengabstraksi query dan model dipanggil disini.
+
+Gambaran pattern untuk Service Repository seperti berikut:
+
+<img width="296" alt="image" src="https://user-images.githubusercontent.com/87472849/227542167-985e2b72-8d06-4b7e-9530-8fb36256cf0f.png">
+
+#### Implementasi
+Setelah memahami hal-hal diatas, mak kita akan mengimplementasikan data mahasiswa menjadi aplikasi CRUD. Pertama kita buat folder `app` yang berisi 4 folder, yaitu controllers, services, repositories, dan routes.
+
+<img width="205" alt="image" src="https://user-images.githubusercontent.com/87472849/227543258-d5e3184d-44b1-41dd-a7c9-b86fd1914fa8.png">
+
+Selanjutnya kita dapat memulai membuat endpoint untuk CRUD mahasiswa
+
+1. Get All Mahasiswa
+
+Di endpoint ini kita mengambil data semua mahasiswa. Kita buat file `mahasiswaRepository.js` di folder `repositories` dan berisi kode sebagai berikut:
+
+```js
+const {mahasiswa} = require('../../models')
+
+exports.getAllMahasiswa = () => {
+    return mahasiswa.findAll()
+}
+```
+
+<img width="672" alt="image" src="https://user-images.githubusercontent.com/87472849/227555221-d0cc4aa3-2c75-4939-8381-afb912c699c8.png">
+
+Pada kode di atas, kita memanggil model mahasiswa yang berada di folder models. Selanjutnya kita membuat fungsi `getAllMahasiswa()` yang mengambil semua data mahasiswa.
+
+Selanjutnya kita membuat file `mahasiswaService` di folder `services` dan berisi kode sebagai berikut:
+
+```js
+const mahasiswaRepository = require('../repositories/mahasiswaRepository');
+
+exports.getAllMahasiswa = async () => {
+    try{
+        const mahasiswas = mahasiswaRepository.getAllMahasiswa();
+        return mahasiswas;
+    }
+    catch(err){
+        throw err;
+    }
+}
+```
+
+Pada kode di atas kita memanggil repository yang telah kita buat. Selanjutnya terdapat pemanggilan exception handler dan memanggil fungsi get all mahasiswa di repository.
+
+Selanjutnya kita membuat file `mahasiswaController.js` pada folder `controllers`. Disini tempat request dan response pada endpoint berlangsung. Kita membuat controller `getAllMahasiswa` sebagai berikut:
+
+```js
+const mahasiswaService = require('../services/mahasiswaService')
+
+exports.getAllMahasiswa = (req, res) => {
+    mahasiswaService.getAllMahasiswa()
+    .then(mahasiswas => {
+        res.status(200).json({
+            status: 'success',
+            message: 'Success get all data mahasiswa',
+            data: mahasiswas
+        })
+    })
+    .catch(err => {
+        res.status(500).json({
+            status: 'error',
+            message: 'internal server error',
+            data: err
+        })
+    })
+}
+```
+
+Pada kode di atas kita memanggil `mahasiswaService` dan menggunakan fungsi di dalamnya yaitu `getAllMahasiswa()`. Terdapat dua response yaitu 200 jika data berhasil diambil dan 500 jika terdapat error pada aplikasi.
+
+Selanjutnya kita perlu memanggil controller tersebut di router. Untuk itu kita perlu membuat file `mahasiswaRouter.js` di folder `routes`. Isi file tersebut sebagai berikut:
+```js
+const router = require('express').Router();
+const mahasiswaController = require('../controllers/mahasiswaController');
+
+router.get('/', mahasiswaController.getAllMahasiswa);
+
+module.exports = router;
+```
+
+Dari kode di atas kita memanggil modul router dan memanggil controller `mahasiswaController`. Selanjutnya router ini kita masukkan ke file utama dalam aplikasi yaitu pada `index.js` dengan menambahkan kode berikut:
+```js
+const mahasiswaRouter = require('./app/routes/mahasiswaRouter');
+
+app.use('/mahasiswa', mahasiswaRouter);
+```
+
+Dan akhirnya kita telah membuat endpoint untuk mengambil semua data mahasiswa. Untuk mencobanya kita jalankan server dengan `npm start` dan akses `localhost:3000/mahasiswa`. Maka kita akan mendapatkan hasil sebagai berikut:
+
+<img width="876" alt="image" src="https://user-images.githubusercontent.com/87472849/227555476-586b6c5b-fce8-41bc-92a0-c588ecba7953.png">
+
+Kita juga dapat mengakses endpoint tersebut dengan Postman.
+
+<img width="648" alt="image" src="https://user-images.githubusercontent.com/87472849/227555962-479d70c6-b0ef-4689-ba9c-a5bf8227dd38.png">
+
+2. Create Mahasiswa
+
+Endpoint selanjutnya adalah create data mahasiswa. Proses ini akan sama dengan sebelumnya maka akan jadi sebagai berikut,
+
+file `mahasiswaRepository` pada folder `repositories`, tambahkan baris kode berikut:
+
+```js
+exports.createMahasiswa = (data) => {
+    return mahasiswa.create(data)
+}
+```
+
+file `mahasiswaService` pada folder `services`, tambahkan baris kode berikut:
+```js
+exports.createMahasiswa = async (data) => {
+    try{
+        const mahasiswa = mahasiswaRepository.createMahasiswa(data);
+        return mahasiswa;
+    }
+    catch(err){
+        throw err;
+    }
+}
+```
+
+file `mahasiswaController` pada folder `controllers`, tambahkan baris kode berikut:
+```js
+exports.createMahasiswa = (req, res) => {
+    const data = req.body;
+    mahasiswaService.createMahasiswa(data)
+    .then(mahasiswa => {
+        if(!mahasiswa){
+            res.status(400).json({
+                status: 'error',
+                message: 'Failed create mahasiswa',
+                data: mahasiswa
+            })
+        }
+        res.status(200).json({
+            status: 'success',
+            message: 'Success create mahasiswa',
+            data: mahasiswa
+        })
+    })
+    .catch(err => {
+        res.status(500).json({
+            status: 'error',
+            message: 'internal server error',
+            data: err
+        })
+    })
+}
+```
+
+Selanjutnya kita panggil fungsi createMahasiswa di router mahasiswa dengan menambahkan baris kode berikut:
+```js
+router.post('/', mahasiswaController.createMahasiswa);
+```
+
+Mari kita coba dengan postman untuk membuat data baru. Yang perlu kita lakukan adalah ubah method menjadi POST dan pilih raw > JSON. Dan tulis request seperti berikut:
+
+<img width="527" alt="image" src="https://user-images.githubusercontent.com/87472849/227559133-7080ec4f-3ba1-4264-9275-d2df5ce7e5f6.png">
+
+Mungkin akan error karena kita belum setup JSON pada aplikasi dan cors nya. Untuk itu kita tambahkan baris kode berikut di `index.js` dan jangan lupa untuk install cors `npm install cors`
+```js
+const cors = require('cors');
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cors());
+```
+
+3. Update Mahasiswa
+Selanjutnya kita membuat endpoint untuk meng-update data mahasiswa. Sama seperti sebelumnya lakukan cara sebagai berikut,
+
+Di file `mahasiswaRepository.js` pada folder `repositories`, tambahkan baris kode berikut:
+```js
+exports.updateMahasiswa = (data, nrp) => {
+    return mahasiswa.update(data, {
+        where: {
+            nrp: nrp
+        }
+    })
+}
+```
+
+Di file `mahasiswaService.js` pada folder `services`, tambahkan baris kode berikut:
+```js
+exports.updateMahasiswa = async (data, nrp) => {
+    try{
+        const mahasiswa = mahasiswaRepository.updateMahasiswa(data, nrp);
+        return mahasiswa;
+    }
+    catch(err){
+        throw err;
+    }
+}
+```
+
+Di file `mahasiswaController.js` pada folder `controllers`, tambahkan baris kode berikut:
+```js
+exports.updateMahasiswa = (req, res) => {
+    const data = req.body;
+    const nrp = req.params.nrp;
+    mahasiswaService.updateMahasiswa(data, nrp)
+    .then(mahasiswa => {
+        if(!mahasiswa){
+            res.status(400).json({
+                status: 'error',
+                message: 'Failed update mahasiswa',
+                data: mahasiswa
+            })
+        }
+        res.status(200).json({
+            status: 'success',
+            message: 'Success update mahasiswa',
+            data: mahasiswa
+        })
+    })
+    .catch(err => {
+        res.status(500).json({
+            status: 'error',
+            message: 'internal server error',
+            data: err
+        })
+    })
+}
+```
+
+Pada router mahasiswa, tambahkan baris kode berikut:
+```js
+router.put('/:nrp', mahasiswaController.updateMahasiswa);
+```
+
+Untuk mencobanya di Postman, ubah method menjadi PUT dan tambahkan `/{nrp}` setelah mahasiswa pada endpoint tersebut. Masukkan data yang ingin diupdate.
+
+<img width="644" alt="image" src="https://user-images.githubusercontent.com/87472849/227563418-c92d1893-b6d8-4df4-8ae3-b084b884749f.png">
+
+Jika kita lihat data mahasiswa, maka nama Adi akan berubah
+
+<img width="651" alt="image" src="https://user-images.githubusercontent.com/87472849/227563569-60a457bc-9273-4abd-a8dd-8cf414b5a06e.png">
+
+
+4. Delete Mahasiswa
+
+Selanjutnya kita membuat endpoint keempat yaitu Delete Mahasiswa untuk menghapus data mahasiswa yang diinginkan. Seperti endpoint sebelumnya, lakukan langkah seperti berikut:
+
+Di file `mahasiswaRepository.js` pada folder `repositories`, tambahkan baris kode berikut:
+```js
+exports.deleteMahasiswa = (nrp) => {
+    return mahasiswa.destroy({
+        where: {
+            nrp: nrp
+        }
+    })
+}
+```
+
+Di file `mahasiswaRService.js` pada folder `services`, tambahkan baris kode berikut:
+```js
+exports.deleteMahasiswa = async (nrp) => {
+    try{
+        const mahasiswa = mahasiswaRepository.deleteMahasiswa(nrp);
+        return mahasiswa;
+    }
+    catch(err){
+        throw err;
+    }
+}
+```
+
+Di file `mahasiswaController.js` pada folder `controllers`, tambahkan baris kode berikut:
+```js
+exports.deleteMahasiswa = (req, res) => {
+    const nrp = req.params.nrp;
+    mahasiswaService.deleteMahasiswa(nrp)
+    .then(mahasiswa => {
+        if(!mahasiswa){
+            res.status(400).json({
+                status: 'error',
+                message: 'Failed delete mahasiswa',
+                data: mahasiswa
+            })
+        }
+        res.status(200).json({
+            status: 'success',
+            message: 'Success delete mahasiswa',
+            data: mahasiswa
+        })
+    })
+    .catch(err => {
+        res.status(500).json({
+            status: 'error',
+            message: 'internal server error',
+            data: err
+        })
+    })
+}
+```
+
+Pada router mahasiswa, tambahkan baris kode berikut:
+```js
+router.delete('/:nrp', mahasiswaController.deleteMahasiswa);
+```
+
+Untuk mencobanya di Postman, ubah method menjadi DELETE dan tambahkan `/{nrp}` setelah mahasiswa pada endpoint tersebut.
+
+<img width="641" alt="image" src="https://user-images.githubusercontent.com/87472849/227567260-6f3a8a91-7b00-437e-b224-6e1e245d46a6.png">
+
+Jika kita cek data get mahasiswa, maka mahasiswa Adi sudah terhapus dari database.
+
+<img width="647" alt="image" src="https://user-images.githubusercontent.com/87472849/227567462-adeaa01d-04fb-4dc8-aa7e-16f63caf42ef.png">
+
+
+Berikut adalah contoh membuat aplikasi CRUD pada data mahasiswa menggunakan ExpressJS. Dalam projek skala besar akan banyak endpoint yang akan dibuat. Untuk itu perlu adanya dokumentasi dalam penggunakan endpoint-endpoint tersebut. Dokumentasi ini dapat menggunakan Postman yang telah kita contohkan dan dapat juga menggunakan Swagger yang dapat otomatis meng-generate dokumentasi berdasarkan endpoint yang kita buat.
+
+
+
+

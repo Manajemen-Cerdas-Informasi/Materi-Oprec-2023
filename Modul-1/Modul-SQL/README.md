@@ -321,7 +321,7 @@ Sebelum mengerjakan, kalian dapat mengunduh dataset <b>Mahasiswa</b> [di sini](h
 
    <img src="../Modul-SQL/img/no_1.png" width=300px>
 
-2. Tampilkan daftar nama dan ukt berdasarkan nominal ukt yang paling mahal, jika ada ukt yang sama, urutkan berdasarkan nama mahasiswa secara alfabetikal.
+2. Tampilkan semua daftar nama dan ukt berdasarkan nominal ukt yang paling mahal, jika ada ukt yang sama, urutkan berdasarkan nama mahasiswa secara alfabetikal.
 
    <img src="../Modul-SQL/img/no_2.png" width=300px>
 
